@@ -21,7 +21,7 @@
 
 <body>
     @include('components.navbar')
-    <main class="container mt-5 grid grid-cols-12">
+    <main class="container mt-5 max-w-[1125px]">
         {{ $slot }}
     </main>
 </body>
