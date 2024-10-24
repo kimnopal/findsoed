@@ -6,7 +6,7 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware("guest")->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
@@ -16,5 +16,6 @@ Route::middleware("guest")->group(function () {
 });
 
 Route::middleware("auth")->group(function () {
+    Route::delete('/logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
 });
