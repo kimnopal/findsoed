@@ -17,16 +17,18 @@
     </div>
 
     <div class="grid grid-cols-12 gap-3">
+        @foreach ($posts as $post)
         <div class="lg:col-span-6 col-span-12">
+            <x-card :post="$post" />
+        </div>
+        @endforeach
+
+        {{-- <div class="lg:col-span-6 col-span-12">
             <x-card></x-card>
         </div>
 
         <div class="lg:col-span-6 col-span-12">
             <x-card></x-card>
-        </div>
-
-        <div class="lg:col-span-6 col-span-12">
-            <x-card></x-card>
-        </div>
+        </div> --}}
     </div>
 </x-app-layout>

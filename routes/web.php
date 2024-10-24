@@ -1,18 +1,20 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
-Route::get('/login', function () {
-    return view('auth.login');
+Route::get('/', [HomeController::class, 'index']);
+
+Route::middleware("guest")->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('/login', [AuthController::class, 'doLogin'])->name('auth.doLogin');
+    Route::post('/register', [AuthController::class, 'doRegister'])->name('auth.doRegister');
 });
 
-Route::get('/register', function () {
-    return view('auth.register');
+Route::middleware("auth")->group(function () {
+    Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
 });
-
-Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
