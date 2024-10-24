@@ -1,11 +1,8 @@
-<div
-    class="flex bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-    {{-- <div class="w-24 h-auto"> --}}
-        <img class="w-52 h-auto rounded-xl object-cover" {{--
-            src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
-            --}} src="{{ $post['photo'] }}" alt="Card Image">
-        {{--
-    </div> --}}
+<a href="{{ route('post.show', $post['id']) }}"
+    class="flex bg-white border shadow-sm rounded-xl group dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+    <img class="w-52 h-auto rounded-xl object-cover" {{--
+        src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
+        --}} src="{{ $post['photo'] }}" alt="Card Image">
     <div class="p-4 md:p-5">
         <div class="flex justify-between items-center flex-wrap mb-3">
             <span
@@ -19,7 +16,7 @@
         </div>
 
         <div class="mb-4">
-            <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+            <h3 class="text-xl font-bold text-gray-800 group-hover:underline dark:text-white">
                 {{ $post['title'] }}
             </h3>
 
@@ -48,4 +45,4 @@
 
     </div>
 
-</div>
+</a>
