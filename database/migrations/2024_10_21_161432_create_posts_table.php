@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('photo');
             $table->string('contact');
+            $table->enum('status', ['hilang', 'temuan', 'ditemukan']);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
