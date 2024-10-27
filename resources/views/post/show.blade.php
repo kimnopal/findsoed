@@ -9,7 +9,7 @@
                 <ol class="flex items-center whitespace-nowrap">
                     <li class="inline-flex items-center">
                         <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
-                            href="#">
+                            href="{{ route('home') }}">
                             Home
                         </a>
                         <svg class="shrink-0 mx-2 size-4 text-gray-400 dark:text-neutral-600"
@@ -32,8 +32,6 @@
         <div class="col-span-10 col-start-2">
             <h2 class="text-3xl font-semibold text-gray-800">{{ $post['title'] }}
             </h2>
-
-
         </div>
     </div>
 
@@ -44,7 +42,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-12 mb-3">
+    <div class="grid grid-cols-12 mb-4">
         <div class="col-span-10 col-start-2">
             <div class="flex gap-3 items-center">
                 <div class="flex justify-between">
@@ -54,16 +52,13 @@
                             alt="Avatar">
                         <div class="ms-3">
                             <p class="text-sm font-medium text-gray-400 dark:text-neutral-500">{{
-                                auth()->user()->username }}
+                                $post['user']['username'] }}
                             </p>
                         </div>
                     </div>
                 </div>
                 <span class="size-1 bg-gray-300 rounded-full dark:bg-neutral-600"></span>
-                <span
-                    class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-800/30 dark:text-red-500">
-                    Hilang
-                </span>
+                <x-badge status="{{ $post['status'] }}">{{ ucfirst($post['status']) }}</x-badge>
                 <span class="size-1 bg-gray-300 rounded-full dark:bg-neutral-600"></span>
                 <p class="text-sm font-medium text-gray-400 flex gap-2 items-center dark:text-neutral-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -80,24 +75,31 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-12 mb-5">
+    <div class="grid grid-cols-12 mb-4">
         <div class="col-span-10 col-start-2">
+            {{-- <div
+                class="pb-3 flex items-center text-xs text-gray-500 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
+                Deskripsi
+            </div> --}}
             <p class="text-justify text-gray-800">{{ $post['description'] }}</p>
         </div>
     </div>
 
     <div class="grid grid-cols-12">
         <div class="col-span-10 col-start-2">
-            <button type="button"
-                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 focus:outline-none focus:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none dark:text-teal-500 dark:bg-teal-800/30 dark:hover:bg-teal-800/20 dark:focus:bg-teal-800/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-phone">
-                    <path
-                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                Kontak Pemilik
-            </button>
+            <div
+                class="flex items-center text-xs before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
+                <a href="/"
+                    class="py-3 px-4 w-fit inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:hover:text-white dark:focus:bg-white/20 dark:focus:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-phone">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Hubungi
+                </a>
+            </div>
         </div>
     </div>
 </x-app-layout>

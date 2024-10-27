@@ -33,10 +33,10 @@ class PostController extends Controller
         return redirect(route('home'));
     }
 
-    public function show(Post $post)
+    public function show(string $id)
     {
         return view('post.show', [
-            'post' => $post,
+            'post' => Post::with('user')->find($id),
         ]);
     }
 }
