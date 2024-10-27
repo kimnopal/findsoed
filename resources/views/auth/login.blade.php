@@ -10,16 +10,16 @@
     </h3>
     <div class="mt-2 text-gray-500 dark:text-neutral-400">
         <div class="w-full space-y-3">
-            <x-input type="email" name="email" placeholder="Enter email" autocomplete="on">
+            <x-input-icon type="email" name="email" placeholder="Enter email" autocomplete="on">
                 <svg class="shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-            </x-input>
+            </x-input-icon>
 
-            <x-input type="password" name="password" placeholder="Enter password">
+            <x-input-icon type="password" name="password" placeholder="Enter password">
                 <svg class="shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -27,7 +27,7 @@
                     </path>
                     <circle cx="16.5" cy="7.5" r=".5"></circle>
                 </svg>
-            </x-input>
+            </x-input-icon>
         </div>
     </div>
     <div class="mt-3 flex gap-3 justify-between">

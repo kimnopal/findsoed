@@ -39,7 +39,8 @@
 
     <div class="grid grid-cols-12 mb-4">
         <div class="col-span-10 col-start-2">
-            <img src="{{ $post['photo'] }}" alt="" class="w-full h-96 object-cover rounded-lg">
+            <img src="{{ asset('images/posts/' . $post['photo']) }}" alt="Foto Barang Hilang"
+                class="w-full min-h-96 h-96 object-cover rounded-lg">
         </div>
     </div>
 

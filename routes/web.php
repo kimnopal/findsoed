@@ -18,6 +18,7 @@ Route::middleware("guest")->group(function () {
 Route::middleware("auth")->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-    Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
-    Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 });
