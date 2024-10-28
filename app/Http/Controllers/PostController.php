@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        return view('post.index', [
+            'posts' => Post::where('user_id', Auth::id())->get(),
+        ]);
+    }
+
     public function create()
     {
         return view('post.create');
@@ -38,5 +45,17 @@ class PostController extends Controller
         return view('post.show', [
             'post' => Post::with('user')->find($id),
         ]);
+    }
+
+    public function edit(string $id)
+    {
+        return view('post.edit', [
+            'post' => Post::find($id),
+        ]);
+    }
+
+    public function update(Request $request, string $id)
+    {
+        // implement update logic
     }
 }

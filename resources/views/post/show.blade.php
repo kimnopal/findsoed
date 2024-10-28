@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-12 mb-4">
+    <div class="grid grid-cols-12 mb-5">
         <div class="col-span-10 col-start-2">
             {{-- <div
                 class="pb-3 flex items-center text-xs text-gray-500 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">

@@ -24,6 +24,10 @@
     <main class="container mt-5 max-w-[1125px]">
         {{ $slot }}
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 </body>
 
 </html>
