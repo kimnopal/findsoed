@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -33,31 +34,35 @@ class PostController extends Controller
             'contact' => 'required|string',
         ]);
 
+        $slug = Str::slug(Str::words($validatedData['title'], 10, ''), '-');
+        $totalSlug = Post::where('slug', 'LIKE', '%' . $slug . '%')->count();
+        $validatedData['slug'] = $totalSlug == 0 ? $slug : $slug . '-' . ++$totalSlug;
+
         $validatedData['photo'] = $request->file('photo')->store();
-        $validatedData["user_id"] = Auth::user()->id;
+        $validatedData['user_id'] = Auth::user()->id;
 
         Post::create($validatedData);
 
         return redirect(route('home'));
     }
 
-    public function show(string $id)
+    public function show(string $slug)
     {
         return view('post.show', [
-            'post' => Post::with('user')->find($id),
+            'post' => Post::with('user')->where('slug', $slug)->first(),
         ]);
     }
 
-    public function edit(string $id)
+    public function edit(string $slug)
     {
         return view('post.edit', [
-            'post' => Post::find($id),
+            'post' => Post::where('slug', $slug)->first(),
         ]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug)
     {
-        $post = Post::find($id);
+        $post = Post::where('slug', $slug)->first();
 
         $request['status'] = strtolower($request['status']);
 
@@ -67,6 +72,12 @@ class PostController extends Controller
             'status' => 'required|in:hilang,temuan,ditemukan',
             'contact' => 'required|string',
         ]);
+
+        if ($post->title != $request['title']) {
+            $slug = Str::slug(Str::words($validatedData['title'], 10, ''), '-');
+            $totalSlug = Post::where('slug', 'LIKE', '%' . $slug . '%')->count();
+            $validatedData['slug'] = $totalSlug == 0 ? $slug : $slug . '-' . ++$totalSlug;
+        }
 
         if ($request->hasFile('photo')) {
             $request->validate([
@@ -83,9 +94,9 @@ class PostController extends Controller
         return redirect(route('posts.index'));
     }
 
-    public function destroy(string $id)
+    public function destroy(string $slug)
     {
-        $post = Post::find($id);
+        $post = Post::where('slug', $slug);
         Storage::delete($post->photo);
         $post->delete();
 

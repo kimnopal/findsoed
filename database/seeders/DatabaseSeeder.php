@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -48,6 +49,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'title' => 'Kehilangan Akal',
+            'slug' => Str::slug(Str::words('Kehilangan Akal', 10, ''), '-'),
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac tortor id eros suscipit mollis. Pellentesque quis sem tristique, commodo ante sit amet, pulvinar nulla. Maecenas convallis diam pulvinar, tempor nisl a, sodales massa. Curabitur pharetra massa sit amet metus fringilla lacinia. Ut vel venenatis nisi, at tempus arcu. Fusce nec tellus blandit nisi accumsan sagittis non in erat. Nullam ut suscipit neque, sit amet auctor enim. Curabitur tincidunt ut ligula ut cursus.',
             'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s',
             'contact' => '081234567890',
@@ -57,6 +59,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'title' => 'Kehilangan seseorang yang dirindukan',
+            'slug' => Str::slug(Str::words('Kehilangan seseorang yang dirindukan', 10, ''), '-'),
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac tortor id eros suscipit mollis. Pellentesque quis sem tristique, commodo ante sit amet, pulvinar nulla. Maecenas convallis diam pulvinar, tempor nisl a, sodales massa. Curabitur pharetra massa sit amet metus fringilla lacinia. Ut vel venenatis nisi, at tempus arcu. Fusce nec tellus blandit nisi accumsan sagittis non in erat. Nullam ut suscipit neque, sit amet auctor enim. Curabitur tincidunt ut ligula ut cursus.',
             'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s',
             'contact' => '081234567890',
@@ -66,6 +69,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'title' => 'Ditemukan topik tugas akhir',
+            'slug' => Str::slug(Str::words('Ditemukan topik tugas akhir', 10, ''), '-'),
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac tortor id eros suscipit mollis. Pellentesque quis sem tristique, commodo ante sit amet, pulvinar nulla. Maecenas convallis diam pulvinar, tempor nisl a, sodales massa. Curabitur pharetra massa sit amet metus fringilla lacinia. Ut vel venenatis nisi, at tempus arcu. Fusce nec tellus blandit nisi accumsan sagittis non in erat. Nullam ut suscipit neque, sit amet auctor enim. Curabitur tincidunt ut ligula ut cursus.',
             'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZqj-XReJ2R76nji51cZl4ETk6-eHRmZBRw&s',
             'contact' => '081234567890',
