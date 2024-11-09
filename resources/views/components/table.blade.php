@@ -1,5 +1,6 @@
 <div class="flex flex-col">
-    <div data-hs-datatable='{
+    <div
+        data-hs-datatable='{
       "pageLength": 10,
       "pagingOptions": {
         "pageBtnClasses": "min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-neutral-700 dark:hover:bg-neutral-700"
@@ -16,8 +17,8 @@
                     placeholder="Search for items" data-hs-datatable-search="">
                 <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
                     <svg class="size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.3-4.3"></path>
                     </svg>
@@ -73,22 +74,26 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
                             @foreach ($posts as $post)
-                            <tr>
-                                <td
-                                    class="p-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    {{ $post['title'] }}</td>
-                                <td class="p-3 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    <x-badge :status="$post['status']">{{ ucfirst($post['status']) }}</x-badge>
-                                </td>
-                                <td class="p-3 whitespace-nowrap text-end text-sm font-medium space-x-2">
-                                    <a href="{{ route('posts.show', $post['id']) }}"
-                                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Detail</a>
-                                    <a href="{{ route('posts.edit', $post['id']) }}"
-                                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-500 dark:hover:text-gray-400 dark:focus:text-gray-400">Edit</a>
-                                    <button type="button"
-                                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400">Delete</button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td
+                                        class="p-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                        {{ $post['title'] }}</td>
+                                    <td class="p-3 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                        <x-badge :status="$post['status']">{{ ucfirst($post['status']) }}</x-badge>
+                                    </td>
+                                    <td class="p-3 whitespace-nowrap text-end text-sm font-medium space-x-2">
+                                        <a href="{{ route('posts.show', $post['id']) }}"
+                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Detail</a>
+                                        <a href="{{ route('posts.edit', $post['id']) }}"
+                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-500 dark:hover:text-gray-400 dark:focus:text-gray-400">Edit</a>
+                                        <form action="{{ route('posts.delete', $post['id']) }}" method="POST"
+                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
