@@ -44,7 +44,7 @@ dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
         class="hidden" {{ $attributes->except('data') }}>
         <option value="">Choose</option>
         @foreach ($data as $status)
-            <option @isset($value) @selected($status == $value) @endisset>{{ ucfirst($status) }}
+            <option @isset($value) @selected($status === $value) @endisset>{{ ucfirst($status) }}
             </option>
         @endforeach
     </select>

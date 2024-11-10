@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -55,14 +56,20 @@ class PostController extends Controller
 
     public function edit(string $slug)
     {
+        $post = Post::where('slug', $slug)->first();
+
+        Gate::authorize('update', $post);
+
         return view('post.edit', [
-            'post' => Post::where('slug', $slug)->first(),
+            'post' => $post,
         ]);
     }
 
     public function update(Request $request, string $slug)
     {
         $post = Post::where('slug', $slug)->first();
+
+        Gate::authorize('update', $post);
 
         $request['status'] = strtolower($request['status']);
 
@@ -73,7 +80,7 @@ class PostController extends Controller
             'contact' => 'required|string',
         ]);
 
-        if ($post->title != $request['title']) {
+        if ($post->title !== $request['title']) {
             $slug = Str::slug(Str::words($validatedData['title'], 10, ''), '-');
             $totalSlug = Post::where('slug', 'LIKE', '%' . $slug . '%')->count();
             $validatedData['slug'] = $totalSlug == 0 ? $slug : $slug . '-' . ++$totalSlug;
@@ -97,6 +104,9 @@ class PostController extends Controller
     public function destroy(string $slug)
     {
         $post = Post::where('slug', $slug);
+
+        Gate::authorize('delete', $post);
+
         Storage::delete($post->photo);
         $post->delete();
 
