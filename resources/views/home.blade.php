@@ -5,10 +5,10 @@
 
     <div class="grid grid-cols-12 mb-5">
         <div class="col-span-6 col-start-4">
-            <x-input-icon type="text" placeholder="Cari barang">
+            <x-input-icon type="text" placeholder="Cari barang" id="search">
                 <svg class="shrink-0 size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
+                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.3-4.3"></path>
                 </svg>
@@ -32,3 +32,13 @@
         </div> --}}
     </div>
 </x-app-layout>
+
+<script>
+    // $('#search').on('input', async function() {
+    //     const res = await fetch("{{ route('posts.data') }}");
+    //     const json = await res.json();
+
+    //     console.log(json);
+
+    // })
+</script>

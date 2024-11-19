@@ -26,75 +26,21 @@
             </div>
         </div>
 
-        <div class="min-h-[521px] overflow-x-auto">
+        <div class="overflow-x-auto">
             <div class="min-w-full inline-block align-middle">
                 <div class="overflow-hidden">
                     <table class="min-w-full">
                         <thead class="border-y border-gray-200 dark:border-neutral-700">
                             <tr>
-                                <th scope="col" class="py-1 group text-start font-normal focus:outline-none">
-                                    <div
-                                        class="py-1 px-2.5 inline-flex items-center border border-transparent text-sm text-gray-500 rounded-md hover:border-gray-200 dark:text-neutral-500 dark:hover:border-neutral-700">
-                                        Title
-                                        <svg class="size-3.5 ms-1 -me-0.5 text-gray-400 dark:text-neutral-500"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path
-                                                class="hs-datatable-ordering-asc:text-blue-600 dark:hs-datatable-ordering-asc:text-blue-500"
-                                                d="m7 15 5 5 5-5"></path>
-                                            <path
-                                                class="hs-datatable-ordering-desc:text-blue-600 dark:hs-datatable-ordering-desc:text-blue-500"
-                                                d="m7 9 5-5 5 5"></path>
-                                        </svg>
-                                    </div>
-                                </th>
+                                {{ $thead }}
 
-                                <th scope="col" class="py-1 group text-start font-normal focus:outline-none">
-                                    <div
-                                        class="py-1 px-2.5 inline-flex items-center border border-transparent text-sm text-gray-500 rounded-md hover:border-gray-200 dark:text-neutral-500 dark:hover:border-neutral-700">
-                                        Status
-                                        <svg class="size-3.5 ms-1 -me-0.5 text-gray-400 dark:text-neutral-500"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path
-                                                class="hs-datatable-ordering-asc:text-blue-600 dark:hs-datatable-ordering-asc:text-blue-500"
-                                                d="m7 15 5 5 5-5"></path>
-                                            <path
-                                                class="hs-datatable-ordering-desc:text-blue-600 dark:hs-datatable-ordering-desc:text-blue-500"
-                                                d="m7 9 5-5 5 5"></path>
-                                        </svg>
-                                    </div>
-                                </th>
                                 <th scope="col"
                                     class="py-2 px-3 text-end font-normal text-sm text-gray-500 --exclude-from-ordering dark:text-neutral-500">
                                     Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                            @foreach ($posts as $post)
-                                <tr>
-                                    <td
-                                        class="p-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                        {{ $post['title'] }}</td>
-                                    <td class="p-3 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        <x-badge :status="$post['status']">{{ ucfirst($post['status']) }}</x-badge>
-                                    </td>
-                                    <td class="p-3 whitespace-nowrap text-end text-sm font-medium space-x-2">
-                                        <a href="{{ route('posts.show', $post['slug']) }}"
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Detail</a>
-                                        <a href="{{ route('posts.edit', $post['slug']) }}"
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-500 dark:hover:text-gray-400 dark:focus:text-gray-400">Edit</a>
-                                        <form action="{{ route('posts.delete', $post['slug']) }}" method="POST"
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            {{ $tbody }}
                         </tbody>
                     </table>
                 </div>
