@@ -32,7 +32,12 @@ class PostController extends Controller
             'photo' => 'required|image|mimes:png,jpg|max:1024',
             'description' => 'required|string',
             'status' => 'required|in:hilang,temuan,ditemukan',
-            'contact' => 'required|string',
+            'contact' => ['required', 'string', function ($attribute, $value, $fail) use ($request) {
+                $contactCode = substr($request['contact'], 0, 2);
+                if ($contactCode !== "62") {
+                    $fail('Contact format must use prefix 62');
+                }
+            }],
         ]);
 
         $slug = Str::slug(Str::words($validatedData['title'], 10, ''), '-');
@@ -77,7 +82,12 @@ class PostController extends Controller
             'title' => 'required|string',
             'description' => 'required|string',
             'status' => 'required|in:hilang,temuan,ditemukan',
-            'contact' => 'required|string',
+            'contact' => ['required', 'string', function ($attribute, $value, $fail) use ($request) {
+                $contactCode = substr($request['contact'], 0, 2);
+                if ($contactCode !== "62") {
+                    $fail('Contact format must use prefix 62');
+                }
+            }],
         ]);
 
         if ($post->title !== $request['title']) {

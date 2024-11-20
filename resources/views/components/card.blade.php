@@ -1,6 +1,6 @@
 <a href="{{ route('posts.show', $post['slug']) }}"
     class="flex h-full bg-white border shadow-sm rounded-xl group hover:shadow-lg focus:outline-none focus:shadow-lg transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-    <img class="min-w-56 w-56 h-auto rounded-xl object-cover" {{--
+    <img class="min-w-56 aspect-square w-56 rounded-xl object-cover" {{--
         src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
         --}}
         src="{{ asset('images/posts/' . $post['photo']) }}" alt="Foto Barang Hilang">

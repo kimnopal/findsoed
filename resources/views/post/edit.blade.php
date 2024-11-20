@@ -2,9 +2,6 @@
     $status = ['hilang', 'temuan', 'ditemukan'];
 @endphp
 
-@if (count($errors) != 0)
-    @dd($errors)
-@endif
 <x-app-layout>
     <x-slot name="title">
         Edit Post
