@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request['cari'] ?? '';
+
         return view('home', [
-            'posts' => Post::with('user')->get(),
+            'posts' => Post::with('user')->where('title', 'LIKE', '%' . $search . '%')->paginate(10),
         ]);
     }
 }

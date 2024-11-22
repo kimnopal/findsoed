@@ -19,11 +19,17 @@
     <title>{{ $title ? $title . ' - ' . env('APP_NAME') : env('APP_NAME') }}</title>
 </head>
 
-<body>
+<body class="min-h-screen grid grid-rows-[max-content_1fr_max-content]">
     @include('components.navbar')
-    <main class="container mt-5 max-w-[1125px]">
+    <main class="container mt-5 max-w-[1125px] mb-5">
         {{ $slot }}
     </main>
+    <footer class="w-full flex justify-center p-5">
+        <div class="">
+            Built with <span class="text-red-500">&hearts;</span> by <a href='https://www.instagram.com/falll.hkm/'
+                target="_blank" class="text-blue-600">@falll.hkm</a>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>

@@ -21,7 +21,7 @@
 <body>
     <div class="container h-screen grid grid-cols-12 justify-center items-center">
         <div
-            class="col-span-4 col-start-5 h-fit flex flex-col bg-white border border-t-4 border-t-blue-600 shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:border-t-blue-500 dark:shadow-neutral-700/70">
+            class="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5 h-fit flex flex-col bg-white border border-t-4 border-t-blue-600 shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:border-t-blue-500 dark:shadow-neutral-700/70">
             <div class="p-4 md:p-5">
                 @yield('form')
             </div>
