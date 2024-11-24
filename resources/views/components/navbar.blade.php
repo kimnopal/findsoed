@@ -77,21 +77,84 @@
 
                     <!-- Button Group -->
                     <div
-                        class="relative flex flex-wrap items-center gap-x-5 md:ps-2.5 mt-1 md:mt-0 md:ms-1.5 
+                        class="relative flex flex-wrap flex-col-reverse items-center gap-y-2 md:gap-x-5 md:flex-row md:ps-2.5 mt-1 md:mt-0 md:ms-1.5 
                         {{-- before:block before:absolute before:top-1/2 before:-start-px before:w-px before:h-4 before:bg-gray-300 before:-translate-y-1/2 dark:before:bg-neutral-700 --}}
                         ">
                         @auth
                             <a href="/posts/create"
-                                class="p-2 inline-flex items-center gap-x-2 text-sm font-medium border border-gray-400 rounded-lg text-gray-500 hover:border-gray-800 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-300 dark:hover:border-neutral-300">
+                                class="w-full p-2 md:p-2 inline-flex items-center justify-center gap-x-2 text-sm font-medium border border-gray-400 rounded-lg text-gray-500 md:w-fit hover:border-gray-800 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-300 dark:hover:border-neutral-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 size-4" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-plus">
                                     <path d="M5 12h14" />
                                     <path d="M12 5v14" />
                                 </svg>
+                                <span class="md:hidden">Add Post</span>
                                 {{-- Post --}}
                             </a>
-                            <div class="shrink-0 group block">
+                            <div class="w-full md:hidden">
+                                <div class="flex items-center border-b border-gray-200 dark:border-neutral-700">
+                                    <img class="inline-block shrink-0 size-10 rounded-full"
+                                        src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+                                        alt="Avatar">
+                                    <div class="py-3 px-4">
+                                        <p class="text-sm font-medium text-gray-800 dark:text-neutral-300">
+                                            {{ auth()->user()->name }}</p>
+                                        <p class="text-sm text-gray-500 dark:text-neutral-400">
+                                            {{ auth()->user()->email }}</p>
+                                    </div>
+                                </div>
+                                <div class="py-1 space-y-0.5">
+                                    @can('is-admin')
+                                        <a href="{{ route('dashboard.index') }}"
+                                            class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                                            href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 size-4" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" class="lucide lucide-layout-dashboard">
+                                                <rect width="7" height="9" x="3" y="3" rx="1" />
+                                                <rect width="7" height="5" x="14" y="3" rx="1" />
+                                                <rect width="7" height="9" x="14" y="12" rx="1" />
+                                                <rect width="7" height="5" x="3" y="16" rx="1" />
+                                            </svg>
+                                            Dashboard
+                                        </a>
+                                    @endcan
+                                    <a href="{{ route('posts.index') }}"
+                                        class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                                        href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 size-4"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-file-text">
+                                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                            <path d="M10 9H8" />
+                                            <path d="M16 13H8" />
+                                            <path d="M16 17H8" />
+                                        </svg>
+                                        Posts
+                                    </a>
+                                    <form action="{{ route('auth.logout') }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-800 hover:bg-red-100 focus:outline-none focus:bg-red-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                                            href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 size-4"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-log-out">
+                                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                                <polyline points="16 17 21 12 16 7" />
+                                                <line x1="21" x2="9" y1="12" y2="12" />
+                                            </svg>
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="shrink-0 group hidden md:block">
                                 <div class="hs-dropdown relative [--placement:bottom]">
                                     <div class="flex items-center cursor-pointer hs-dropdown-toggle"
                                         id="hs-dropdown-with-header" aria-haspopup="menu" aria-expanded="false"
