@@ -95,7 +95,7 @@
                             <div class="w-full md:hidden">
                                 <div class="flex items-center border-b border-gray-200 dark:border-neutral-700">
                                     <img class="inline-block shrink-0 size-10 rounded-full"
-                                        src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+                                        src="{{ auth()->user()->avatar ?? 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80' }}"
                                         alt="Avatar">
                                     <div class="py-3 px-4">
                                         <p class="text-sm font-medium text-gray-800 dark:text-neutral-300">
@@ -160,7 +160,7 @@
                                         id="hs-dropdown-with-header" aria-haspopup="menu" aria-expanded="false"
                                         aria-label="Dropdown">
                                         <img class="inline-block shrink-0 size-10 rounded-full"
-                                            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+                                            src="{{ auth()->user()->avatar ?? 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80' }}"
                                             alt="Avatar">
                                         {{-- <div class="ms-3">
                                             <p class="text-sm font-medium text-gray-400 dark:text-neutral-500">
