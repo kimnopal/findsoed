@@ -69,10 +69,10 @@
                             <a href="{{ route('posts.edit', $post['slug']) }}"
                                 class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-500 dark:hover:text-gray-400 dark:focus:text-gray-400">Edit</a>
                             <form action="{{ route('posts.delete', $post['slug']) }}" method="POST"
-                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400">
+                                class="inline-flex items-center gap-x-2 mb-0 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="">Delete</button>
+                                <button type="submit">Delete</button>
                             </form>
                         </td>
                     </tr>
