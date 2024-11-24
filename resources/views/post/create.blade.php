@@ -30,7 +30,7 @@
     <h2 class="text-2xl font-semibold mb-3">Buat Post</h2>
 
     <div class="grid grid-cols-12">
-        <div class="col-span-8">
+        <div class="col-span-12 lg:col-span-8">
             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
                 @csrf
 

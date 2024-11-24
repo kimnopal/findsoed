@@ -30,7 +30,7 @@
     <h2 class="text-2xl font-semibold mb-3">Edit Post</h2>
 
     <div class="grid grid-cols-12">
-        <div class="col-span-8">
+        <div class="col-span-12 lg:col-span-8">
             <form action="{{ route('posts.update', $post['slug']) }}" method="POST" enctype="multipart/form-data"
                 class="space-y-4">
                 @csrf
@@ -43,7 +43,7 @@
                     value="{{ $post['photo'] }}" />
 
                 <x-textarea id="description" name="description" label="Deskripsi" placeholder="Tulis deskripsi"
-                    value="{{ $post['description'] }}" />
+                    value="{{ $post['description'] }}" row="10" />
 
                 <x-select id="status" name="status" label="Status" placeholder="Pilih Status" :data="$status"
                     value="{{ $post['status'] }}" />
