@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -63,5 +65,40 @@ class AuthController extends Controller
         session()->regenerateToken();
 
         return redirect(route('home'));
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            // dd($user->user);
+            $registeredUser = User::where('email', $user->getEmail())->first();
+
+            if ($registeredUser) {
+                Auth::login($registeredUser);
+            } else {
+                $newUser = User::create([
+                    'name' => $user->getName(),
+                    'username' => explode('@', $user->getEmail())[0],
+                    'email' => $user->getEmail(),
+                    'password' => Hash::make('password'),
+                    'role_id' => User::USER,
+                    'avatar' => $user->getAvatar(),
+                ]);
+
+                Auth::login($newUser);
+            }
+
+            session()->regenerate();
+            return redirect()->intended();
+        } catch (Exception $e) {
+            dd($e->getMessage());
+            return redirect(route('auth.login'));
+        }
     }
 }

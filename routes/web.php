@@ -5,9 +5,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/auth', [AuthController::class, 'redirectToProvider']);
+
+Route::get('/auth/callback', [AuthController::class, 'handleProviderCallback']);
 
 Route::middleware("guest")->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('auth.login');

@@ -113,7 +113,7 @@ class PostController extends Controller
 
     public function destroy(string $slug)
     {
-        $post = Post::where('slug', $slug);
+        $post = Post::where('slug', $slug)->first();
 
         Gate::authorize('delete', $post);
 

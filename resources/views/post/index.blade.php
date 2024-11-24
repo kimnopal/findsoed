@@ -28,7 +28,7 @@
                 </li>
                 <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
                     aria-current="page">
-                    Detail Post
+                    List Post
                 </li>
             </ol>
         </div>
