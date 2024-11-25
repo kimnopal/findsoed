@@ -12,7 +12,7 @@ class HomeController extends Controller
         $search = $request['cari'] ?? '';
 
         return view('home', [
-            'posts' => Post::with('user')->where('title', 'LIKE', '%' . $search . '%')->paginate(10),
+            'posts' => Post::with('user')->where('title', 'LIKE', '%' . $search . '%')->latest()->paginate(10),
         ]);
     }
 }

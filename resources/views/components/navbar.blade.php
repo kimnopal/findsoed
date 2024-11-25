@@ -349,7 +349,7 @@
                             <li>
                                 <a class="text-blue-600 underline decoration-blue-600 hover:opacity-80 focus:outline-none focus:opacity-80"
                                     href="https://www.instagram.com/rassxmad/" target="_blank">Rafi Azhar
-                                    Suatmadja</a>
+                                    Suadmaja</a>
                             </li>
                             <li>
                                 <a class="text-blue-600 underline decoration-blue-600 hover:opacity-80 focus:outline-none focus:opacity-80"
