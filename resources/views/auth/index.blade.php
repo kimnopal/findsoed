@@ -18,16 +18,8 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="h-screen grid grid-rows-[1fr]">
-    {{-- <a href="" class="container flex gap-2 text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
-            <path d="m12 19-7-7 7-7" />
-            <path d="M19 12H5" />
-        </svg>
-        <span class="w-fit">back</span>
-    </a> --}}
-    <div class="container grid grid-cols-12 justify-center items-center">
+<body>
+    <div class="container h-screen grid grid-cols-12 justify-center items-center">
         <div
             class="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5 h-fit flex flex-col">
             @yield('form')
