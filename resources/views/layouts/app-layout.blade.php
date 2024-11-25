@@ -21,7 +21,7 @@
 
 <body class="min-h-screen grid grid-rows-[max-content_1fr_max-content]">
     @include('components.navbar')
-    <main class="container mt-5 max-w-[1125px] mb-5 w-screen">
+    <main class="container mt-6 max-w-[1125px] mb-5 w-screen">
         {{ $slot }}
     </main>
     <footer class="w-full flex flex-col items-center justify-center p-5 gap-3">

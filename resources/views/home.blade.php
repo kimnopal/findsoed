@@ -5,8 +5,12 @@
 
     <div class="grid grid-cols-12 mb-5">
         <div class="col-span-12 sm:col-span-8 sm:col-start-3 md:col-span-6 md:col-start-4">
+            <div class="mb-3 sm:text-center">
+                <h1 class="text-gray-800 text-xl font-medium sm:text-2xl">Barangmu hilang?</h1>
+                <h2 class="text-gray-800 text-3xl font-semibold sm:text-4xl">Temukan disini!</h2>
+            </div>
             <form action="{{ route('home') }}" method="GET">
-                <x-input-icon type="text" placeholder="Cari barang" id="search" name="cari">
+                <x-input-icon type="text" placeholder="Cari barangmu" id="search" name="cari">
                     <svg class="shrink-0 size-4 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
