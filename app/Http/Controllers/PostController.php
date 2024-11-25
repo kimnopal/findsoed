@@ -29,7 +29,7 @@ class PostController extends Controller
 
         $validatedData = $request->validate([
             'title' => 'required|string',
-            'photo' => 'required|image|mimes:png,jpg|max:1024',
+            'photo' => 'required|image|mimes:png,jpg,webp|max:1024',
             'description' => 'required|string',
             'status' => 'required|in:hilang,temuan,ditemukan',
             'contact' => ['required', 'string', function ($attribute, $value, $fail) use ($request) {
