@@ -316,9 +316,9 @@
             <div class="p-4 overflow-y-auto">
                 <div class="space-y-4">
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Apa itu FindSoed? 👋</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Apa itu Findsoed? 👋</h3>
                         <p class="mt-1 text-gray-800 dark:text-neutral-400">
-                            FindSoed adalah platform inovatif yang memungkinkan kamu untuk melaporkan barang hilang atau
+                            Findsoed adalah platform inovatif yang memungkinkan kamu untuk melaporkan barang hilang atau
                             barang temuan dengan mudah. Platform ini menjadi solusi terbaik untuk menemukan barang -
                             barang yang hilang di lingkungan UNSOED.
                         </p>
@@ -327,9 +327,10 @@
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Siapa dibalik Findsoed? ✨</h3>
                         <p class="mt-1 text-gray-800 dark:text-neutral-400">
-                            FindSoed adalah hasil kolaborasi dari anggota <a
+                            Findsoed adalah hasil kolaborasi dari anggota <a
                                 class="text-blue-600 underline decoration-blue-600 hover:opacity-80 focus:outline-none focus:opacity-80"
-                                href="#">Open Source Community</a> (OSC) UNSOED, yang
+                                href="https://www.instagram.com/osc.unsoed">Open Source Community</a> (OSC) UNSOED,
+                            yang
                             terdiri dari mahasiswa berbakat dengan semangat untuk menciptakan solusi berbasis teknologi.
                         </p>
                     </div>

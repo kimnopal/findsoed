@@ -92,7 +92,7 @@
         <div class="col-span-12 md:col-span-10 md:col-start-2">
             <div
                 class="flex items-center text-xs before:flex-1 before:border-t before:border-gray-200 before:me-3 md:before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-3 md:after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
-                <a href="/"
+                <a href="{{ 'https://wa.me/' . $post['contact'] }}" target="_blank"
                     class="py-2 px-3 md:py-3 md:px-4 w-fit inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:hover:text-white dark:focus:bg-white/20 dark:focus:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

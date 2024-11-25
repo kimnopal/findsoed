@@ -42,7 +42,7 @@
 
                 <x-select id="status" name="status" label="Status" placeholder="Pilih Status" :data="$status" />
 
-                <x-input-label type="text" id="contact" name="contact" label="Kontak Whatsapp" placeholder="+62" />
+                <x-input-label type="text" id="contact" name="contact" label="Kontak Whatsapp" placeholder="62" />
 
                 <button type="submit"
                     class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
