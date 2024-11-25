@@ -41,10 +41,10 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Naufal Hakim',
-            'username' => 'naotheone',
-            'email' => 'naufal@example.com',
+            'username' => 'admin.keren',
+            'email' => 'naufal.h@mhs.unsoed.ac.id',
             'password' => bcrypt('password'),
-            'role_id' => 2,
+            'role_id' => 1,
         ]);
 
         Post::create([

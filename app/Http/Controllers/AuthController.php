@@ -82,16 +82,21 @@ class AuthController extends Controller
             if ($registeredUser) {
                 Auth::login($registeredUser);
             } else {
-                $newUser = User::create([
-                    'name' => $user->getName(),
-                    'username' => explode('@', $user->getEmail())[0],
-                    'email' => $user->getEmail(),
-                    'password' => Hash::make('password'),
-                    'role_id' => User::USER,
-                    'avatar' => $user->getAvatar(),
-                ]);
+                $domain = explode('@', $user->getEmail())[1];
+                if (in_array($domain, ['mhs.unsoed.ac.id', 'unsoed.ac.id'])) {
+                    $newUser = User::create([
+                        'name' => $user->getName(),
+                        'username' => explode('@', $user->getEmail())[0],
+                        'email' => $user->getEmail(),
+                        'password' => Hash::make('password'),
+                        'role_id' => User::USER,
+                        'avatar' => $user->getAvatar(),
+                    ]);
 
-                Auth::login($newUser);
+                    Auth::login($newUser);
+                } else {
+                    return redirect(route('auth.login'));
+                }
             }
 
             session()->regenerate();
